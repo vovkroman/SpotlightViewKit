@@ -1,6 +1,6 @@
 import UIKit
 
-enum Event {
+public enum Event {
     case `init`
     case starting
     case loaded
@@ -8,18 +8,18 @@ enum Event {
     case finishing
 }
 
-struct FocusItem {
+public struct FocusItem {
     let index: Int
     /// **focusRectangle** - is CGRect of the cut slot, (not view)
     let focusedRectangle: CGRect
 }
 
-enum BackgroundMode {
+public enum BackgroundMode {
     case blur(configurator: BlurConfigurator)
     case color(configurator: ColorConfigurator)
 }
 
-protocol SpotlightDelegate: class {
+public protocol SpotlightDelegate: class {
     func numberOfFocusItem() -> Int
     func focusRect(at index: Int) -> CGRect
     func spotlightView(_ spotlightView: SpotLightView, performActionForItem item: FocusItem)
@@ -27,7 +27,7 @@ protocol SpotlightDelegate: class {
     func allAnimationsDidFinished()
 }
 
-struct ColorConfigurator {
+public struct ColorConfigurator {
     
     let color: UIColor = .gray
     
@@ -36,30 +36,30 @@ struct ColorConfigurator {
     let alpha: CGFloat = 0.6
 }
 
-struct BlurConfigurator {
+public struct BlurConfigurator {
     /// Ratio
-    let ratio: CGFloat = 1.0
+    public let ratio: CGFloat = 1.0
     
     ///Blur radius
-    let blurRadius: CGFloat = 5.0
+    public let blurRadius: CGFloat = 5.0
     
     /// Blend color.
-    let blendColor: UIColor? = .gray
+    public let blendColor: UIColor? = .gray
     
     /// Blend mode.
-    let blendMode: CGBlendMode = .darken
+    public let blendMode: CGBlendMode = .darken
     
     /// Default is 3.
-    let iterations = 3
+    public let iterations = 3
 }
 
-class SpotLightView: UIView {
+public class SpotLightView: UIView {
     
-    override class var layerClass: AnyClass {
+    final public override class var layerClass: AnyClass {
         return SpotlightLayer.self
     }
     
-    override var layer: SpotlightLayer {
+    final public override var layer: SpotlightLayer {
         return super.layer as! SpotlightLayer
     }
     
@@ -81,25 +81,25 @@ class SpotLightView: UIView {
         super.init(frame: frame)
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         _mode = .blur(configurator: .init())
         super.init(coder: coder)
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         layer.removeAllAnimations()
         animate()
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         setupBackground(on: _mode)
     }
     
     // MARK: - Public methods
     
-    func start() {
+    public func start() {
         guard let count = delegate?.numberOfFocusItem(), count > 0 else {
             return
         }

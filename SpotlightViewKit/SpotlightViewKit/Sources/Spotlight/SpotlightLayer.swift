@@ -15,7 +15,7 @@ enum Constants {
     static let duration: TimeInterval = 1.0
 }
 
-class SpotlightLayer: CALayer {
+public class SpotlightLayer: CALayer {
     
     private unowned var _masklayer: CAShapeLayer!
     
@@ -30,33 +30,33 @@ class SpotlightLayer: CALayer {
     
     // MARK: - Life Cycle of CALayer
     
-    override init() {
+    public override init() {
         super.init()
         _setup()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         _setup()
     }
     
-    override func layoutSublayers() {
+    public override func layoutSublayers() {
         super.layoutSublayers()
         _updateLayers()
     }
     
-    override func removeAllAnimations() {
+    public override func removeAllAnimations() {
         super.removeAllAnimations()
         _masklayer.removeAnimation(forKey: Animation.move.rawValue)
     }
     
     // MARK: - Public methods
     
-    func finish() {
+    public func finish() {
         moveAnimation(to: _initialPath.cgPath, delegate: nil)
     }
     
-    func moveAnimation(to: CGPath, delegate: CAAnimationDelegate?) {
+    public func moveAnimation(to: CGPath, delegate: CAAnimationDelegate?) {
         let focusAnimation = AnimationBuilder(with: #keyPath(CAShapeLayer.path))
             .begin(from: 0.0)
             .duration(duration: Constants.duration)
