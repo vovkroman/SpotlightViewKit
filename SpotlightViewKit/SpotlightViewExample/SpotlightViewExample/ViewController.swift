@@ -16,7 +16,7 @@ class ViewController: UIViewController {
                                           blendColor: .darkGray,
                                           blendMode: .luminosity,
                                           iterations: 3)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // to launch SpotLightView with 1s delay
             let spotLight = SpotLightView(frame: UIScreen.main.bounds, mode: .blur(configurator: blurConfig))
             self._spotlightView = spotLight
             spotLight.delegate = self

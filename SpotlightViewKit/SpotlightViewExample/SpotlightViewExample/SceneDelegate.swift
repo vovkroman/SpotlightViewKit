@@ -1,11 +1,3 @@
-//
-//  SceneDelegate.swift
-//  SpotlightViewExample
-//
-//  Created by Roman Vovk on 26.01.2021.
-//  Copyright © 2021 Roman Vovk. All rights reserved.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
