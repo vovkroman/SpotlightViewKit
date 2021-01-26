@@ -14,6 +14,8 @@
 		6FF247A325C08116000D846F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF247A225C08116000D846F /* Assets.xcassets */; };
 		6FF247A625C08116000D846F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FF247A425C08116000D846F /* LaunchScreen.storyboard */; };
 		6FF247B125C08116000D846F /* SpotlightViewExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF247B025C08116000D846F /* SpotlightViewExampleTests.swift */; };
+		6FF247BD25C08626000D846F /* SpotlightViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF247BC25C08626000D846F /* SpotlightViewKit.framework */; };
+		6FF247BE25C08626000D846F /* SpotlightViewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF247BC25C08626000D846F /* SpotlightViewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,20 @@
 			remoteInfo = SpotlightViewExample;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6FF247BF25C08626000D846F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6FF247BE25C08626000D846F /* SpotlightViewKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6FF2479625C08113000D846F /* SpotlightViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotlightViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +54,7 @@
 		6FF247AC25C08116000D846F /* SpotlightViewExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotlightViewExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FF247B025C08116000D846F /* SpotlightViewExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightViewExampleTests.swift; sourceTree = "<group>"; };
 		6FF247B225C08116000D846F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FF247BC25C08626000D846F /* SpotlightViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SpotlightViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FF247BD25C08626000D846F /* SpotlightViewKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +82,7 @@
 				6FF2479825C08113000D846F /* SpotlightViewExample */,
 				6FF247AF25C08116000D846F /* SpotlightViewExampleTests */,
 				6FF2479725C08113000D846F /* Products */,
+				6FF247BB25C08626000D846F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +118,14 @@
 			path = SpotlightViewExampleTests;
 			sourceTree = "<group>";
 		};
+		6FF247BB25C08626000D846F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6FF247BC25C08626000D846F /* SpotlightViewKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,6 +136,7 @@
 				6FF2479225C08113000D846F /* Sources */,
 				6FF2479325C08113000D846F /* Frameworks */,
 				6FF2479425C08113000D846F /* Resources */,
+				6FF247BF25C08626000D846F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

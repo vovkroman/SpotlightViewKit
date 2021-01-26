@@ -72,19 +72,19 @@ extension ViewController: SpotlightDelegate {
         ]
         switch item.index {
         case 0, 2:
-            label.attributedText = NSAttributedString(string: "Cenetered View. it's been added to check how view wil look like.",
+            label.attributedText = NSAttributedString(string: "Centered View. it's been added to check how view will look like.",
                                                       attributes: attributes)
             label.layoutIfNeeded()
             let size = label.sizeThatFits(CGSize(width: 200.0, height: .greatestFiniteMagnitude))
             label.frame = CGRect(origin: CGPoint(x: item.focusedRectangle.minX, y: item.focusedRectangle.minY - size.height), size: size)
         case 1:
-            label.attributedText = NSAttributedString(string: "Upper Letf View. it's been added to check how view will look like. Color is blue",
+            label.attributedText = NSAttributedString(string: "Upper Right View. It's been added to check how view will look like. Color is yellow.",
                                                       attributes: attributes)
             label.layoutIfNeeded()
             let size = label.sizeThatFits(CGSize(width: item.focusedRectangle.minX, height: .greatestFiniteMagnitude))
             label.frame = CGRect(origin: CGPoint(x: 10.0, y: 10.0), size: size)
         case 3:
-            label.attributedText = NSAttributedString(string: "Lower Right View. it's been added to check how view will look like. Color is purple",
+            label.attributedText = NSAttributedString(string: "Lower Left View. it's been added to check how view will look like. Color is blue.",
                                                       attributes: attributes)
             label.layoutIfNeeded()
             let size = label.sizeThatFits(CGSize(width: view.bounds.width - item.focusedRectangle.width, height: .greatestFiniteMagnitude))
