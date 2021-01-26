@@ -9,9 +9,9 @@ public enum Event {
 }
 
 public struct FocusItem {
-    let index: Int
+    public let index: Int
     /// **focusRectangle** - is CGRect of the cut slot, (not view)
-    let focusedRectangle: CGRect
+    public let focusedRectangle: CGRect
 }
 
 public enum BackgroundMode {
@@ -25,32 +25,6 @@ public protocol SpotlightDelegate: class {
     func spotlightView(_ spotlightView: SpotLightView, performActionForItem item: FocusItem)
     func spotlightView(_ spotlightView: SpotLightView, animationDidFinishedForItem item: FocusItem)
     func allAnimationsDidFinished()
-}
-
-public struct ColorConfigurator {
-    
-    let color: UIColor = .gray
-    
-    let blendMode: CGBlendMode = .color
-    
-    let alpha: CGFloat = 0.6
-}
-
-public struct BlurConfigurator {
-    /// Ratio
-    public let ratio: CGFloat = 1.0
-    
-    ///Blur radius
-    public let blurRadius: CGFloat = 5.0
-    
-    /// Blend color.
-    public let blendColor: UIColor? = .gray
-    
-    /// Blend mode.
-    public let blendMode: CGBlendMode = .darken
-    
-    /// Default is 3.
-    public let iterations = 3
 }
 
 public class SpotLightView: UIView {
