@@ -37,7 +37,7 @@ public class SpotLightView: UIView {
         return super.layer as! SpotlightLayer
     }
     
-    weak var delegate: SpotlightDelegate?
+    public weak var delegate: SpotlightDelegate?
     
     /// Iterator through the single link list
     private var _iterator: FocusRectanglesIterator?
@@ -50,7 +50,7 @@ public class SpotLightView: UIView {
         }
     }
         
-    init(frame: CGRect, mode: BackgroundMode = .blur(configurator: .init())) {
+    public init(frame: CGRect, mode: BackgroundMode = .blur(configurator: .init())) {
         _mode = mode
         super.init(frame: frame)
     }
