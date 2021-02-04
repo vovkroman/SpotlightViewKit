@@ -11,17 +11,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let blurConfig = BlurConfigurator(1.0,
-                                          blurRadius: 20.0,
-                                          blendColor: .darkGray,
-                                          blendMode: .luminosity,
-                                          iterations: 3)
+        let spotLight = SpotLightView(frame: UIScreen.main.bounds)
+        _spotlightView = spotLight
+        spotLight.delegate = self
+        view.addSubview(spotLight)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // to launch SpotLightView with 1s delay
-            let spotLight = SpotLightView(frame: UIScreen.main.bounds, mode: .blur(configurator: blurConfig))
-            self._spotlightView = spotLight
-            spotLight.delegate = self
             spotLight.start()
-            self.view.addSubview(spotLight)
         }
     }
 }
