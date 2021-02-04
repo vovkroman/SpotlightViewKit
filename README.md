@@ -1,4 +1,5 @@
 # SpotlightViewKit
 Description
 
-![](Demo/spotlight_demo.gif).
+![](Demo/blur_appearence.gif).
+![](Demo/color_appearance.gif).
