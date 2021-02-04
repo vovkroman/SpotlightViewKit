@@ -20,6 +20,7 @@ public enum BackgroundMode {
 }
 
 public protocol SpotlightDelegate: class {
+    var contentView: UIView? { get }
     func numberOfFocusItem() -> Int
     func focusRect(at index: Int) -> CGRect
     func spotlightView(_ spotlightView: SpotLightView, performActionForItem item: FocusItem)
@@ -44,6 +45,8 @@ public class SpotLightView: UIView {
     
     private let _mode: BackgroundMode
     
+    private let _renderWorker = DispatchQueue.global(qos: .userInitiated)
+    
     private(set) var _event: Event = .`init` {
         didSet {
             didUpdate(from: oldValue, to: _event)
@@ -60,18 +63,25 @@ public class SpotLightView: UIView {
         super.init(coder: coder)
     }
     
+    deinit {
+        debugPrint("SpotLightView has been removed")
+    }
+    
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         layer.removeAllAnimations()
         animate()
     }
     
-    public override func layoutSubviews() {
-        super.layoutSubviews()
+    // MARK: - Public methods
+    
+    func setupAppearance() {
         setupBackground(on: _mode)
     }
     
-    // MARK: - Public methods
+    func updateLayers() {
+        layer.updateLayers()
+    }
     
     public func start() {
         guard let count = delegate?.numberOfFocusItem(), count > 0 else {
@@ -84,18 +94,12 @@ public class SpotLightView: UIView {
     // MARK: - Private methods
     
     private func didUpdate(from: Event, to: Event) {
-        #if DEBUG
-        debugPrint("[SpotlightView]: \(#function) in \(#line) Transition state: \(from) -> \(to)")
-        #endif
+        debugPrint("Transition state: \(from) -> \(to)")
         switch (from, to) {
         case (.starting, .loaded), (.loaded, .starting):
             animate()
         case (.executing, .finishing):
             animateWrapup()
-        case (_, .loaded):
-            #if DEBUG
-            debugPrint("[SpotlightView]: \(#function) in \(#line): please check if method 'start' has been invoked")
-            #endif
         default:
             break
         }
@@ -133,22 +137,31 @@ public class SpotLightView: UIView {
     
     private func setupBackground(on displayMode: BackgroundMode) {
         if layer.contents == nil {
-            guard let image = self.superview?.makeCapture() else { return }
+            guard let image = delegate?.contentView?.makeCapture() else { return }
             switch displayMode {
             case .blur(let config):
+                _renderWorker.async {
                 let blurImage = image.applyBlur(radius: config.blurRadius,
                                                 iterations: config.iterations,
                                                 ratio: config.ratio,
                                                 blendColor: config.blendColor,
                                                 blendMode: config.blendMode)
-                layer.contents = blurImage
+                    DispatchQueue.main.async {
+                        self.layer.contents = blurImage
+                        self._event = .loaded
+                    }
+                }
             case .color(let config):
+                _renderWorker.async {
                 let colorImage = image.apply(config.color,
                                              config.blendMode,
                                              config.alpha)
-                layer.contents = colorImage.cgImage
+                    DispatchQueue.main.async {
+                        self.layer.contents = colorImage.cgImage
+                        self._event = .loaded
+                    }
+                }
             }
-            _event = .loaded
         }
     }
 }

@@ -7,21 +7,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var orangeView: UIView!
     @IBOutlet weak var blueView: UIView!
     
-    private var _spotlightView: SpotLightView?
+    private var _spotlightManager: SpotlightManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let spotLight = SpotLightView(frame: UIScreen.main.bounds)
-        _spotlightView = spotLight
-        spotLight.delegate = self
-        view.addSubview(spotLight)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // to launch SpotLightView with 1s delay
-            spotLight.start()
+        let manager: SpotlightManager = .init(self)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { // to launch SpotLightView with 3s delay
+            manager.start()
         }
+        _spotlightManager = manager
     }
 }
 
+extension ViewController: SpotlightConfigurator {
+    var delegate: SpotlightDelegate? { return self }
+    var backgroundMode: BackgroundMode { return .color(configurator: .init()) }
+}
+
 extension ViewController: SpotlightDelegate {
+    var contentView: UIView? {
+        return navigationController?.view
+    }
+    
     func numberOfFocusItem() -> Int {
         return 5
     }
@@ -45,7 +52,7 @@ extension ViewController: SpotlightDelegate {
     }
     
     func allAnimationsDidFinished() {
-        _spotlightView?.removeFromSuperview()
+        _spotlightManager = nil
     }
     
     func spotlightView(_ spotlightView: SpotLightView, performActionForItem item: FocusItem) {
@@ -77,7 +84,13 @@ extension ViewController: SpotlightDelegate {
                                                       attributes: attributes)
             label.layoutIfNeeded()
             let size = label.sizeThatFits(CGSize(width: item.focusedRectangle.minX, height: .greatestFiniteMagnitude))
-            label.frame = CGRect(origin: CGPoint(x: 10.0, y: 10.0), size: size)
+            var frame: CGRect!
+            if #available(iOS 11.0, *) {
+                frame = CGRect(origin: CGPoint(x: view.safeAreaInsets.left, y: view.safeAreaInsets.top), size: size)
+            } else {
+                frame = CGRect(origin: CGPoint(x: 10.0, y: 10.0), size: size)
+            }
+            label.frame = frame
         case 3:
             label.attributedText = NSAttributedString(string: "Lower Left View. it's been added to check how view will look like. Color is blue.",
                                                       attributes: attributes)
@@ -85,11 +98,17 @@ extension ViewController: SpotlightDelegate {
             let size = label.sizeThatFits(CGSize(width: view.bounds.width - item.focusedRectangle.width, height: .greatestFiniteMagnitude))
             label.frame = CGRect(origin: CGPoint(x: item.focusedRectangle.maxX, y: item.focusedRectangle.minY), size: size)
         case 4:
-            label.attributedText = NSAttributedString(string: "Just a simple image. it's been added how Kit works with nested views",
+            label.attributedText = NSAttributedString(string: "Just a simple image. it's been added to take a look how Kit works with nested views",
                                                       attributes: attributes)
             label.layoutIfNeeded()
             let size = label.sizeThatFits(CGSize(width: item.focusedRectangle.minX, height: .greatestFiniteMagnitude))
-            label.frame = CGRect(origin: CGPoint(x: 10.0, y: 10.0), size: size)
+            var frame: CGRect!
+            if #available(iOS 11.0, *) {
+                frame = CGRect(origin: CGPoint(x: view.safeAreaInsets.left, y: view.safeAreaInsets.top), size: size)
+            } else {
+                frame = CGRect(origin: CGPoint(x: 10.0, y: 10.0), size: size)
+            }
+            label.frame = frame
         default:
             break
         }

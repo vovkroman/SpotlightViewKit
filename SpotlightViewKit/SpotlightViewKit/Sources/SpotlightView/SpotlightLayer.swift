@@ -40,17 +40,17 @@ public class SpotlightLayer: CALayer {
         _setup()
     }
     
-    public override func layoutSublayers() {
-        super.layoutSublayers()
-        _updateLayers()
-    }
-    
     public override func removeAllAnimations() {
         super.removeAllAnimations()
         _masklayer.removeAnimation(forKey: Animation.move.rawValue)
     }
     
     // MARK: - Public methods
+    
+    public func updateLayers() {
+        _masklayer.frame = bounds
+        _masklayer.path = _initialPath.cgPath
+    }
     
     public func finish() {
         moveAnimation(to: _initialPath.cgPath, delegate: nil)
@@ -79,11 +79,6 @@ public class SpotlightLayer: CALayer {
         shapelayer.fillRule = .evenOdd
         mask = shapelayer
         _masklayer = shapelayer
-    }
-    
-    private func _updateLayers() {
-        _masklayer.frame = bounds
-        _masklayer.path = _initialPath.cgPath
     }
 }
 
