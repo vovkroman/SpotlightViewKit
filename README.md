@@ -1,5 +1,5 @@
 # SpotlightViewKit
-**SpotlightViewKit** is a framework, which might be considered as part of onboarding process. **SpotlightView** provides a very simple API to generate spotlight effect, and zoom on different parts of UI, and moves from one to onother. Besides, it's pretty customizable (see [Functionality]()).
+**SpotlightViewKit** is a framework, which might be considered as part of onboarding process. **SpotlightView** provides a very simple API to generate spotlight effect, and zoom on different parts of UI, and moves from one to another. Besides, it's customizable (see [Functionality](#Functionality)).
 
 ### Requirements (Programming language)
 
@@ -13,7 +13,7 @@ iOS 10.0 and upper
 
 - [x] **Usability** - there are 2 appraches how to use SpotlightViewKit:
 
-1. [SpotlightView](https://github.com/vovkroman/SpotlightViewKit/blob/master/SpotlightViewKit/SpotlightViewKit/Sources/SpotlightView/SpotLightView.swift) can be created for itself, implementing delegate methods:
+1. [SpotlightView](https://github.com/vovkroman/SpotlightViewKit/blob/master/SpotlightViewKit/SpotlightViewKit/Sources/SpotlightView/SpotLightView.swift) can be created, implementing delegate methods:
 
 ```
 var contentView: UIView? { get } // specific View, which overlay is laid on
@@ -24,7 +24,8 @@ func spotlightView(_ spotlightView: SpotLightView, animationDidFinishedForItem i
 func allAnimationsDidFinished() // all animations have been finished and there is nothing to be focused
 ```
 
-In this approach user manages the view for himself.
+In this approach, client manages the view for himself.
+
 <sup><sub>There is a drawback in current approach: user should create the view, when the layout is **relevant**, otherwise, slots won't match with actual view</sub></sup>
 
 2. To use [SpotlightManager](https://github.com/vovkroman/SpotlightViewKit/blob/master/SpotlightViewKit/SpotlightViewKit/Sources/SpotlightViewController/SpotlightManager.swift); it manages when views've been finished layouting for itself. client should run the following code:
@@ -34,6 +35,8 @@ In this approach user manages the view for himself.
 let manager: SpotlightManager = SpotlightManager(...)
 manager.start()
 ```
+
+Moreover, **SpotlightManager** presents overlay view in the separated [UIWindow](https://developer.apple.com/documentation/uikit/uiwindow).
 
 - [x] **Customizability** - framework provides 2 ways to configure overlay:
 
