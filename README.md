@@ -18,8 +18,8 @@ iOS 10.0 and upper
 Here is some set of this params and how overlay will look like (listed set is default one):
 
 |**ratio**,<sub>CGFloat</sub>|**blurRadius**, <sub>CGFloat</sub> |**blendColor**, <sub>UIColor</sub> |**blendMode**, <sub>CGBlendMode</sub>|**iterations**, <sub>CGBlendMode</sub>|
-| ------------- |:-------------:|:---------------------:|:------------------:|
-| 1.0        |    80.0    |      gray          |       destinationOver      | 3|
+| --------------------------:|:---------------------------------:|:---------------------------------:|:-----------------------------------:|:------------------------------------:|
+|           1.0              |                80.0               |                gray               |             destinationOver         |               3                      |
 
 ![](Demo/blur_appearence.gif).
 
@@ -27,7 +27,7 @@ Here is some set of this params and how overlay will look like (listed set is de
 Here is some set of this params and how overlay will look like:
 
 |**color**, <sub>UIColor</sub>|**blendMode**, <sub>CGBlendMode</sub> |**alpha**, <sub>CGFloat</sub> |
-| ------------- |:-------------:|:---------------------:|:------------------:|
-| lightGray      |    darken    |      0.6          |  
+| --------------------------- |:------------------------------------:|:----------------------------:|
+|            lightGray        |                   darken             |              0.6             |  
 
 ![](Demo/color_appearance.gif).
