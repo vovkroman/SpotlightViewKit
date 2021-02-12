@@ -24,11 +24,11 @@ func spotlightView(_ spotlightView: SpotLightView, animationDidFinishedForItem i
 func allAnimationsDidFinished() // all animations have been finished and there is nothing to be focused
 ```
 
-In this approach, client manages the view for himself.
+In this approach, client should manage the view for himself.
 
 <sup><sub>There is a drawback in current approach: user should create the view, when the layout is **relevant**, otherwise, slots won't match with actual view</sub></sup>
 
-2. To use [SpotlightManager](https://github.com/vovkroman/SpotlightViewKit/blob/master/SpotlightViewKit/SpotlightViewKit/Sources/SpotlightViewController/SpotlightManager.swift); it manages when views've been finished layouting for itself. client should run the following code:
+2. To use [SpotlightManager](https://github.com/vovkroman/SpotlightViewKit/blob/master/SpotlightViewKit/SpotlightViewKit/Sources/SpotlightViewController/SpotlightManager.swift); it manages when views've been finished layouting for itself. Client should run the following code:
 
 
 ```
