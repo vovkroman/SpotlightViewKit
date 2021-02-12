@@ -57,3 +57,23 @@ Here is some set of this params and how overlay will look like:
 |            lightGray        |                   darken             |              0.6             |  
 
 ![](Demo/color_appearance.gif).
+
+### Distribution
+
+SpotlightViewKit's available through [**CocoaPods**](https://cocoapods.org/) for iOS:
+
+To integrate SpotlightViewKit into your Xcode project using CocoaPods, specify it in your ```Podfile```:
+
+```
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+use_frameworks!
+
+pod 'SpotlightViewKit', git: 'https://github.com/vovkroman/SpotlightViewKit.git'
+```
+
+Then, run the following command:
+
+```
+$ pod install
+```
