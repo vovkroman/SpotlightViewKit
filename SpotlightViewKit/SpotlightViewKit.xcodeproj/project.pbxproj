@@ -24,7 +24,7 @@
 		6FE9871225BDE45300DD1596 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE9870625BDE3EA00DD1596 /* Global.swift */; };
 		6FE9877C25BDF2D200DD1596 /* Configurators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE9877B25BDF2D200DD1596 /* Configurators.swift */; };
 		6FF104A625D665D1005A65DF /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF104A425D665D1005A65DF /* SpotlightViewController.swift */; };
-		6FF104B225D668A3005A65DF /* SpotlightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF104A525D665D1005A65DF /* SpotlightManager.swift */; };
+		6FF104B725D66B41005A65DF /* SpotlightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF104B625D66B41005A65DF /* SpotlightManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,7 @@
 		6FE9870625BDE3EA00DD1596 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		6FE9877B25BDF2D200DD1596 /* Configurators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurators.swift; sourceTree = "<group>"; };
 		6FF104A425D665D1005A65DF /* SpotlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
-		6FF104A525D665D1005A65DF /* SpotlightManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightManager.swift; sourceTree = "<group>"; };
+		6FF104B625D66B41005A65DF /* SpotlightManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,8 +175,8 @@
 		6FF104A325D665D1005A65DF /* SpotlightViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6FF104B625D66B41005A65DF /* SpotlightManager.swift */,
 				6FF104A425D665D1005A65DF /* SpotlightViewController.swift */,
-				6FF104A525D665D1005A65DF /* SpotlightManager.swift */,
 			);
 			path = SpotlightViewController;
 			sourceTree = "<group>";
@@ -290,7 +290,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FF104B225D668A3005A65DF /* SpotlightManager.swift in Sources */,
 				6FE9870B25BDE45300DD1596 /* CGImage+Accelerate.swift in Sources */,
 				6FE9870925BDE45300DD1596 /* AnimationBuilder.swift in Sources */,
 				6FE9870E25BDE45300DD1596 /* CGRect+Center.swift in Sources */,
@@ -300,6 +299,7 @@
 				6FE9870D25BDE45300DD1596 /* CGContext+CGImage.swift in Sources */,
 				6FF104A625D665D1005A65DF /* SpotlightViewController.swift in Sources */,
 				6FE9871125BDE45300DD1596 /* UIView+Snapshot.swift in Sources */,
+				6FF104B725D66B41005A65DF /* SpotlightManager.swift in Sources */,
 				6FE9871025BDE45300DD1596 /* UIImage+Blur.swift in Sources */,
 				6FE9871225BDE45300DD1596 /* Global.swift in Sources */,
 				6FE9870A25BDE45300DD1596 /* SpotlightLayer.swift in Sources */,
