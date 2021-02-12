@@ -61,7 +61,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "SpotlightViewKit/SpotlightViewKit/Source", "SpotlightViewKit/SpotlightViewKit/Source/**/*.{swift}"
+  spec.source_files  = "SpotlightViewKit/SpotlightViewKit/Sources", "SpotlightViewKit/SpotlightViewKit/Sources/**/*.{swift}"
   spec.swift_version = "4.2"
 
   spec.frameworks = "UIKit"
