@@ -20,7 +20,7 @@ public enum BackgroundMode {
 }
 
 public protocol SpotlightDelegate: class {
-    var contentView: UIView? { get }
+    var contentView: UIView? { get } //make sure if **contentView**'s not been implemented, so overlay will be as black screen
     func numberOfFocusItem() -> Int
     func focusRect(at index: Int) -> CGRect
     func spotlightView(_ spotlightView: SpotLightView, performActionForItem item: FocusItem)
@@ -28,7 +28,7 @@ public protocol SpotlightDelegate: class {
     func allAnimationsDidFinished()
 }
 
-public class SpotLightView: UIView {
+public final class SpotLightView: UIView {
     
     final public override class var layerClass: AnyClass {
         return SpotlightLayer.self

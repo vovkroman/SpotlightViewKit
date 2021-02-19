@@ -36,11 +36,17 @@ extension SpotlightManager: SpotlightDelegate {
     }
     
     public func numberOfFocusItem() -> Int {
-        return _delegate?.numberOfFocusItem() ?? 0
+        guard let delegate = _delegate else {
+            fatalError("[SpotlgihtView]: delegate doesn't exist")
+        }
+        return delegate.numberOfFocusItem()
     }
     
     public func focusRect(at index: Int) -> CGRect {
-        return _delegate?.focusRect(at: index) ?? .zero
+        guard let delegate = _delegate else {
+            fatalError("[SpotlgihtView]: delegate doesn't exist")
+        }
+        return delegate.focusRect(at: index)
     }
     
     public func spotlightView(_ spotlightView: SpotLightView, performActionForItem item: FocusItem) {
