@@ -1,3 +1,9 @@
+![Swift Version][swift-image]
+![Platform][ios-image]
+![License][license-image]
+![Xcode][xcode-image]
+
+
 # SpotlightViewKit
 **SpotlightViewKit** is a framework, which might be considered as part of onboarding process. **SpotlightView** provides a very simple API to generate spotlight effect, and zoom on different parts of UI, and moves from one to another. Besides, it's customizable (see [Functionality](#Functionality)).
 
@@ -47,7 +53,9 @@ Here is some set of this params and how overlay will look like (listed set is de
 | --------------------------:|:---------------------------------:|:---------------------------------:|:-----------------------------------:|:------------------------------------:|
 |           1.0              |                80.0               |                gray               |             destinationOver         |               3                      |
 
-![](Demo/blur_appearence.gif).
+<p align="center">
+	<img src="Demo/blur_appearence.gif">
+</p>
 
 2.  To setup overlay with **Color**, user should configure 3 params (**color**, **blendMode**, **alpha**). 
 Here is some set of this params and how overlay will look like:
@@ -56,7 +64,9 @@ Here is some set of this params and how overlay will look like:
 | --------------------------- |:------------------------------------:|:----------------------------:|
 |            lightGray        |                   darken             |              0.6             |  
 
-![](Demo/color_appearance.gif).
+<p align="center">
+	<img src="Demo/color_appearance.gif">
+</p>
 
 ### Distribution
 
@@ -77,3 +87,9 @@ Then, run the following command:
 ```
 $ pod install
 ```
+
+
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg
+[swift-image]: https://img.shields.io/badge/swift-4.2+-orange.svg
+[xcode-image]: https://img.shields.io/badge/xcode-10+-blue.svg
+[ios-image]: https://img.shields.io/badge/iOS-10.0+-blue.svg
