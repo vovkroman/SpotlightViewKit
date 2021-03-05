@@ -48,11 +48,10 @@ Moreover, **SpotlightManager** presents overlay view in the separated [UIWindow]
 
 1. To setup overlay with **Blur**, user should configure 5 params (**ratio**, **blurRadius**, **blendColor**, **blendMode**, **iterations**). 
 Here is some set of this params and how overlay will look like (listed set is default one):
-<center>
+
 |**ratio**, (CGFloat)|**blurRadius**, (CGFloat) |**blendColor**, (UIColor) |**blendMode**, (CGBlendMode)|**iterations**, (Int)|
 | --------------------------:|:---------------------------------:|:---------------------------------:|:-----------------------------------:|:------------------------------------:|
 |           1.0              |                80.0               |                gray               |             destinationOver         |               3                      |
- </center>
 
 <p align="center">
 	<img src="Demo/blur_appearence.gif">
